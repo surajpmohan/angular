@@ -23,9 +23,10 @@ Author: <input type="text" ng-model="book.author">
 Price: <input type="number" ng-model="book.price">
 </td>
 <td>
-<input type="button" ng-click="addBook()" value="Add">
-<input type="button" ng-click="updateBook()" value="Update">
-<input type="button" ng-click="deleteBook()" value="Delete">
+<input type="button" ng-click="addBook()" value="Add" ng-disabled="selected">
+<input type="button" ng-click="updateBook()" ng-disabled="!selected" value="Update">
+<input type="button" ng-click="deleteBook()" ng-disabled="!selected" value="Delete">
+<input type="button" ng-click="reset()" value="Reset">
 </td>
 </tr>
 </table>

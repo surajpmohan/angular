@@ -12,6 +12,10 @@ angular.module("book",[]).controller("Book", function($scope, $http){
 	$scope.selectBook = function(){
 		$scope.book =  angular.fromJson(angular.toJson($scope.books[$scope.selected]))
 	}
+	$scope.reset = function(){
+		$scope.book = new Object();
+		$scope.selected = null;
+	}
 	$scope.updateBook = function(){
 		$scope.updateModel = new Object();
 		$scope.updateModel.oldBook = $scope.books[$scope.selected];
