@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="book.js"></script>
+<body>
+<div ng-app="book" ng-controller="Book">
+<table>
+<tr>
+<td>
+ID: <input type="number" ng-model="book.id">
+</td>
+<td>
+Name: <input type="text" ng-model="book.name">
+</td>
+<td>
+Author: <input type="text" ng-model="book.author">
+</td>
+<td>
+Price: <input type="number" ng-model="book.price">
+</td>
+<td>
+<input type="button" ng-click="addBook()" value="Add">
+<input type="button" ng-click="updateBook()" value="Update">
+<input type="button" ng-click="deleteBook()" value="Delete">
+</td>
+</tr>
+</table>
+<table>
+	<tr>
+	<th>Select<th>ID</th><th>Name</th><th>Author</th><th>Price</th>
+	</tr>
+	<tr ng-repeat="book in books">
+		<td><input type="radio" ng-model="$parent.selected" ng-click="selectBook()"  value="{{$index}}" name="bookSelect"></td>
+		<td>{{book.id}}</td>
+		<td>{{book.name}}</td>
+		<td>{{book.author}}</td>
+		<td>{{book.price | currency}}</td>
+	</tr>
+</table>
+
+</div>
+</body>
+</html>
